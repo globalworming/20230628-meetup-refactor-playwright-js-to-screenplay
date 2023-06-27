@@ -74,3 +74,5 @@ https://hpmor.com/
 
 
 ![image](https://github.com/globalworming/20230628-meetup-refactor-playwright-js-to-screenplay/assets/2108984/3b3a9a2c-59a7-423d-a275-965d0419d666)
+https://serenitydojo.teachable.com/
+https://serenity-js.org/
