@@ -1,5 +1,15 @@
-import {ArticleDetail, BlockCartModal, ProductSlider} from "../page";
 import {expect} from "@playwright/test";
+import {SelectItemInProductSlider} from "./selectItemInProductSlider";
+import {ProductDetails} from "../page";
+
+class AddItemAndGoToCart {
+
+    performAs = async (actor) => {
+        let page = actor.page;
+        await page.click(ProductDetails.addToCart)
+        await page.click(`#blockcart-modal > div > div > div.modal-footer > a`)
+    }
+}
 
 export class AddProductToCart {
     constructor(productName) {
@@ -9,9 +19,10 @@ export class AddProductToCart {
 
     performAs = async (actor) => {
         const page = actor.page;
-        await new ProductSlider(page).selectItem(this.productName)
-        await new ArticleDetail(page).addToCart()
-        await new BlockCartModal(page).goToCart()
+        await actor.attemptsTo(
+            new SelectItemInProductSlider(this.productName),
+            new AddItemAndGoToCart()
+        )
         await expect(page.locator(".cart-products")).toContainText(this.productName);
     }
 }

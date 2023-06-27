@@ -1,3 +1,5 @@
 export {AddProductToCart} from './addProductToCart'
 export {EnsureTheOrderIsConfirmed} from './ensureTheOrderIsConfirmed'
+export {FillPersonalData} from './fillPersonalData'
 export {FinishOrder} from './finishOrder'
+export {SelectItemInProductSlider} from './selectItemInProductSlider'
