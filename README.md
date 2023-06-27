@@ -45,10 +45,10 @@
         
         }
   * add second step, call both in attemptsTo
-  * add ensure and ask on the way
-  * 
+  * add an ensure task
+  * replace FIllPersonalData, introduce notepad, replace product name
 * this is what the script might look like when we use screenplay (result, main branch)
-* 
+* questions? and did you just add an assert in the steps
 
 * benefits:
   * easy modeling multiple actors, user and admin
