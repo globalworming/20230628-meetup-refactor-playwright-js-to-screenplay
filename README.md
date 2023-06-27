@@ -18,11 +18,15 @@
   * goto pattern is POM
     * new HomePage goto.. and now? Homepage.pickSliderProduct(..) no... you create ProductSlider page object  
     * refactor to POM
-  * and to adapt the report, use `test.step`
-* this is what the script might look like when we use POM (branch)
-   * cool and all, but i don't like the duplication
-   * we can group the steps, get rid of the comments, use test.step here... but screenplay is cool, so lets show that
-   * this is screenplay (show model) and we are adapting it a bit to 
+* and to adapt the report, use `test.step`
+  * introduce everywhere
+* create steps package, point out duplication in function names and test.step
+* lets see how screenplay pattern would look like
+* this is screenplay (show model)
+  * ![image](https://github.com/globalworming/20230628-meetup-refactor-playwright-js-to-screenplay/assets/2108984/dad7140d-57ec-4eb7-ba94-ce5c4d500b41)
+
+  * we'll do a minimalistic implementation
+  * ignore abilities for now
 * this is what the script might look like when we use screenplay (result, main branch)
 * 
 
