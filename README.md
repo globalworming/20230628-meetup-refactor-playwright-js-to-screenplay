@@ -27,6 +27,25 @@
 
   * we'll do a minimalistic implementation
   * ignore abilities for now
+* implement:
+  * start new Actor(name)
+  * add actor attemptsTo for first step
+  * add actor page
+  *     class Actor {
+
+            constructor(name, page) {
+                this.name = name;
+                this.page = page
+            }
+        
+            attemptsTo = async (task) => {
+                await test.step(transform(task.constructor.name), async () => {
+                    await task.perform(this)
+                });
+            }
+        }
+    
+        const transform = str => str.replace(/[A-Z]/g, letter => ` ${letter.toLowerCase()}`);
 * this is what the script might look like when we use screenplay (result, main branch)
 * 
 
