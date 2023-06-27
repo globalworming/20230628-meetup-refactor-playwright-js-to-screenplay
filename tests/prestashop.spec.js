@@ -2,25 +2,7 @@ import {test} from "@playwright/test";
 import {Home} from "../page";
 import {AddProductToCart, EnsureTheOrderIsConfirmed, FinishOrder} from "../step";
 import {randomEmail} from "../util";
-
-class Actor {
-    page;
-
-    constructor(name) {
-        this.name = name;
-    }
-
-    attemptsTo = async (...tasks) => {
-        for (const task of tasks) {
-            const transform = str => str.replace(/[A-Z]/g, letter => ` ${letter.toLowerCase()}`);
-            let title = this.name + " attempts to " + (task.args !== undefined ?
-                transform(task.constructor.name) + " " + JSON.stringify(task.args) :
-                transform(task.constructor.name));
-            await test.step(title, async () => await task.performAs(this))
-        }
-    }
-
-}
+import {Actor} from "../model/actor";
 
 test.describe("e2e happy paths", async () => {
     let page;
@@ -43,7 +25,7 @@ test.describe("e2e happy paths", async () => {
         test("should be able to buy a product", async () => {
             await actor.attemptsTo(
                 new AddProductToCart(actor.notepad.order.productName),
-                new FinishOrder())
+                new FinishOrder());
             await actor.attemptsTo(new EnsureTheOrderIsConfirmed());
         });
     });

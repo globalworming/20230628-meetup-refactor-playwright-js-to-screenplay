@@ -1,5 +1,5 @@
 import {expect} from "@playwright/test";
-import {SelectItemInProductSlider} from "./selectItemInProductSlider";
+import {SelectItemInProductSlider} from ".";
 import {ProductDetails} from "../page";
 
 class AddItemAndGoToCart {
