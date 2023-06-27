@@ -1,43 +1,36 @@
-import { test } from "@playwright/test";
-import Actions from "../models/Actions";
-import Actor from "../models/Actor";
+import {test} from "@playwright/test";
+import {Home} from "../page";
+import {AddProductToCart, EnsureTheOrderIsConfirmed, FinishOrder} from "../step";
+import {randomEmail} from "../util";
+import {Actor} from "../model/actor";
 
-test.describe("Compliance", async () => {
-  let page;
-  let actor;
+test.describe("e2e happy paths", async () => {
+    let page;
+    let actor;
 
-  test.beforeAll(async ({ browser }) => {
-    page = await browser.newPage();
-    await page.goto(`${process.env.BASE_URL}`);
-    actor = new Actor(page);
-  });
-
-  test.afterAll(async () => {
-    await page.close();
-  });
-
-  test.describe("Tests PrestaShop", async () => {
-    test("Should be able to buy a product", async () => {
-      await actor.attemptsTo(Actions.buyProductAsGuest);
-
-      //Going to admin panel and changing payment status
-      await actor.attemptsTo(Actions.acceptPaymentAsAdmin);
-
-      //Ensuring the Order reference is in the most recent email
-      await actor.attemptsTo(Actions.goToEmailAndCheck);
+    test.beforeAll(async ({browser}) => {
+        page = await browser.newPage();
+        await new Home(page).goTo()
+        actor = new Actor("globalworming")
+        actor.page = page;
+        actor.notepad = {
+            firstName: "Dora", lastName: "Rubio", email: randomEmail(),
+            order: {
+                productName: 'Hummingbird printed t-shirt'
+            }
+        }
     });
-    test("Should be able to register as new client and buy a product", async () => {
-      //Register new user
-      await actor.attemptsTo(Actions.registerNewUser);
 
-      //Place the order as Register User
-      await actor.attemptsTo(Actions.buyProductAsClient);
-
-      //Going to admin panel and changing payment status
-      await actor.attemptsTo(Actions.acceptPaymentAsAdmin);
-
-      //Ensuring the Order reference is in the most recent email
-      await actor.attemptsTo(Actions.goToEmailAndCheck);
+    test.describe("when ordering", async () => {
+        test("should be able to buy a product", async () => {
+            await actor.attemptsTo(
+                new AddProductToCart(actor.notepad.order.productName),
+                new FinishOrder());
+            await actor.attemptsTo(new EnsureTheOrderIsConfirmed());
+        });
     });
-  });
+
+    test.afterAll(async () => {
+        await page.close();
+    });
 });

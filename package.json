@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test-local": "BASE_URL=localhost:8881/index.php  npx playwright test --project=chromium ",
-    "test-mobile": "BASE_URL=localhost:8881/index.php  npx playwright test --project=mobile ",
-    "test-firefox": "BASE_URL=localhost:8881/index.php  npx playwright test --project=firefox",
-    "test-all": "BASE_URL=localhost:8881/index.php  npx playwright test ",
+    "test-local": "BASE_URL=localhost:8881  npx playwright test --project=chromium ",
+    "test-mobile": "BASE_URL=localhost:8881  npx playwright test --project=mobile ",
+    "test-firefox": "BASE_URL=localhost:8881  npx playwright test --project=firefox",
+    "test-all": "BASE_URL=localhost:8881  npx playwright test ",
     "prettier": "prettier --write ."
   },
   "keywords": [],
