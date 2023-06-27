@@ -2,6 +2,10 @@
 ![image](https://github.com/globalworming/20230628-meetup-refactor-playwright-js-to-screenplay/assets/2108984/f7c49a67-195f-490e-9e84-c92c90b0cb0e)
 
 
+![image](https://github.com/globalworming/20230628-meetup-refactor-playwright-js-to-screenplay/assets/2108984/6b39f992-0fb8-45f5-b727-cb0625ca4fae)
+
+
+
 * this is me, what i do etc.. reuse the prezi slides
   *  
 * goal:
