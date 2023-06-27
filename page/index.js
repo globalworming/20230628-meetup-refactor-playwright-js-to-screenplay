@@ -6,5 +6,4 @@ export { Cart } from './cart';
 export { Checkout } from './checkout';
 export { Home } from './home';
 export { PaymentSelection } from './paymentSelection';
-export { PersonalDataForm } from './personalDataForm';
 export { ProductSlider } from './productSlider';
