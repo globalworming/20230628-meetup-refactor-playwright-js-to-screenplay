@@ -67,4 +67,10 @@
 * drawbacks
   * tons of actions, findability, accidental duplication...
   * stacktrace indirection, another layer, error in `attemptsTo`
-  * sharing state between steps, remember/recall is unusual and might get unwieldy 
+  * sharing state between steps, remember/recall is unusual and might get unwieldy
+ 
+ ![image](https://github.com/globalworming/20230628-meetup-refactor-playwright-js-to-screenplay/assets/2108984/2746490f-227a-437f-ac5f-40db2133387e)
+https://hpmor.com/
+
+
+![image](https://github.com/globalworming/20230628-meetup-refactor-playwright-js-to-screenplay/assets/2108984/3b3a9a2c-59a7-423d-a275-965d0419d666)
