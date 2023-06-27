@@ -47,6 +47,9 @@
   * add second step, call both in attemptsTo
   * add an ensure task
   * replace FIllPersonalData, introduce notepad, replace product name
+  * replace all in order product
+    * see. no POM needed
+      * well, I lied, show locator object
 * this is what the script might look like when we use screenplay (result, main branch)
 * questions? and did you just add an assert in the steps
 
