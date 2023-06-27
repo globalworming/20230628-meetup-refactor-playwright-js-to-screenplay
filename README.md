@@ -4,6 +4,7 @@
 
 ![image](https://github.com/globalworming/20230628-meetup-refactor-playwright-js-to-screenplay/assets/2108984/6b39f992-0fb8-45f5-b727-cb0625ca4fae)
 
+![image](https://github.com/globalworming/20230628-meetup-refactor-playwright-js-to-screenplay/assets/2108984/159d89bb-fdcc-4ff9-b21e-3aa7eca137a5)
 
 
 * this is me, what i do etc.. reuse the prezi slides
