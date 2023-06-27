@@ -32,20 +32,18 @@
   * add actor attemptsTo for first step
   * add actor page
   *     class Actor {
-
-            constructor(name, page) {
+            page;
+        
+            constructor(name) {
                 this.name = name;
-                this.page = page
             }
         
             attemptsTo = async (task) => {
-                await test.step(transform(task.constructor.name), async () => {
-                    await task.perform(this)
-                });
+                const transform = str => str.replace(/[A-Z]/g, letter => ` ${letter.toLowerCase()}`);
+                return test.step(transform(task.constructor.name) + " " + JSON.stringify(task.args), async () => await task.performAs(this))
             }
+        
         }
-    
-        const transform = str => str.replace(/[A-Z]/g, letter => ` ${letter.toLowerCase()}`);
 * this is what the script might look like when we use screenplay (result, main branch)
 * 
 
