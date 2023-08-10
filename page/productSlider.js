@@ -5,5 +5,8 @@ export class ProductSlider {
         this.page = page;
     }
 
-    selectItem = name => this.page.click(`text=${name}`);
+    selectItem = async name => await test.step(
+        `select item ${name}`,
+        async () => await this.page.click(`text=${name}`)
+    );
 }

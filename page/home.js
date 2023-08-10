@@ -1,7 +1,12 @@
+import {test} from "@playwright/test";
+
 export class Home {
     constructor(page) {
         this.page = page;
     }
 
-    goTo = () => this.page.goto(process.env.BASE_URL);
+    goTo = async () => {
+        const url = process.env.BASE_URL;
+        return test.step("navigate to " + url, async () => await this.page.goto(url));
+    }
 }
