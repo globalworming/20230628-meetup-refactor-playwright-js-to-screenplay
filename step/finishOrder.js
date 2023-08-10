@@ -1,17 +1,21 @@
-import {test} from "@playwright/test";
-import {AddressForm, CarrierSelection, Cart, Checkout, PaymentSelection} from "../page";
-import {FillPersonalData} from "./fillPersonalData";
+import {
+    AcceptConditions,
+    SelectCarrier,
+    SelectFirstPaymentOption,
+    SubmitAddress,
+    SubmitOrder,
+    SubmitPersonalData
+} from ".";
 
 export class FinishOrder {
-    performAs = async (actor) => {
-        const page = actor.page;
-        await test.step(`finish order`, async () => {
-            await new Cart(page).continueToCheckout()
-            await actor.attemptsTo(new FillPersonalData());
-            await new AddressForm(page).fillAndSubmit()
-            await new CarrierSelection(page).select('My carrier')
-            await new PaymentSelection(page).selectFirst()
-            await new Checkout(page).submitOrder()
-        });
+    performAs = async actor => {
+        await actor.page.click(".card-body .btn-primary")
+        await actor.attemptsTo(
+            new SubmitPersonalData(),
+            new SubmitAddress(),
+            new SelectCarrier('My carrier'),
+            new SelectFirstPaymentOption(),
+            new AcceptConditions(),
+            new SubmitOrder());
     }
 }

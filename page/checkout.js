@@ -1,11 +1,4 @@
-import {test} from "@playwright/test";
-
-export class Checkout {
-    constructor(page) {
-        this.page = page;
-    }
-
-    submitOrder = async () => test.step(
-        "submit order",
-        async () => await this.page.click('button:visible[type="submit"]'));
+export const Checkout = {
+    acceptCondtions: '#conditions-to-approve div',
+    paymentOption: 'input[name="payment-option"] + label'
 }

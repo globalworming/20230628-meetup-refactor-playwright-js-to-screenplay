@@ -1,4 +1,4 @@
-export class FillPersonalData {
+export class SubmitPersonalData {
 
     performAs = async actor => {
         const page = actor.page;
