@@ -1,6 +1,7 @@
 import {test} from "@playwright/test";
 import {Home} from "../page";
 import {AddProductToCart, EnsureTheOrderIsConfirmed, FinishOrder} from "../step";
+import {randomEmail} from "../util";
 
 class Actor {
     page;
@@ -30,13 +31,18 @@ test.describe("e2e happy paths", async () => {
         await new Home(page).goTo()
         actor = new Actor("globalworming")
         actor.page = page;
+        actor.notepad = {
+            firstName: "Dora", lastName: "Rubio", email: randomEmail(),
+            order: {
+                productName: 'Hummingbird printed t-shirt'
+            }
+        }
     });
 
     test.describe("when ordering", async () => {
         test("should be able to buy a product", async () => {
-            const printedTShirt = 'Hummingbird printed t-shirt';
             await actor.attemptsTo(
-                new AddProductToCart(printedTShirt),
+                new AddProductToCart(actor.notepad.order.productName),
                 new FinishOrder())
             await actor.attemptsTo(new EnsureTheOrderIsConfirmed());
         });
